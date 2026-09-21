@@ -1,0 +1,68 @@
+theme:
+  background-color: 0.05 0.05 0.08
+  card-background: 0.1 0.1 0.15
+  primary-color: 0.5 0.3 0.9
+  text-color: 0.9 0.9 0.95
+  rounding: 8
+
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: bookmarks
+            groups:
+              - title: "Control Panel"
+                links:
+                  - title: "GitHub Repo"
+                    url: "https://github.com/StoneboyP"
+                    icon: si:github
+                  - title: "Tailscale Admin"
+                    url: "https://login.tailscale.com/admin/machines"
+                    icon: si:tailscale
+                  - title: "Glance"
+                    url: "https://github.com/glanceapp/glance/blob/main/docs/configuration.md#configuring-glance"
+                    icon: si:glance
+          - type: weather
+            location: Astana
+          - type: monitor
+            cache: 1m
+            title: Services
+            sites:
+              - title: AdguardHome
+                url: ${ADGUARD_URL}
+                icon: si:adguard
+              - title: transmissonConf
+                url: ${TRANSMISSION_URL}
+                icon: si:transmission
+      - size: full
+        widgets:
+          - type: server-stats
+            title: "Nettop-Home Hardware"
+            servers:
+              - type: local
+                name: "Nettop Celeron"
+                mountpoints:
+                  "/":
+                    name: "Root Disk"
+              - type: remote
+                name: "Conf Server"
+                url: ${CONF_SERVER_URL}
+          - type: docker-containers
+            title: "Remote Containers (Conf Server)"
+            sock-path: ${DOCKER_SOCK}
+          - type: dns-stats
+            service: adguard
+            url: ${ADGUARD_URL}
+            username: admin
+            password: ${ADGUARD_PASSWORD}
+
+  - name: News
+    columns:
+      - size: full
+        widgets:
+          - type: rss
+            title: "Poe"
+            limit: 5
+            feeds:
+              - url: "http://www.pathofexile.com/news/rss"
