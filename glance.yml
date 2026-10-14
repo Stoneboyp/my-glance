@@ -35,6 +35,9 @@ pages:
               - title: transmissonConf
                 url: ${TRANSMISSION_URL}
                 icon: si:transmission
+              - title: court-bot-db
+                url: ${COURT-BOT-DB_URL}
+                icon: si:postgresql
       - size: full
         widgets:
           - type: server-stats
@@ -48,9 +51,12 @@ pages:
               - type: remote
                 name: "Conf Server"
                 url: ${CONF_SERVER_URL}
+         #- type: docker-containers
+          # title: "Remote Containers (Conf Server)"
+          # sock-path: ${DOCKER_SOCK}
           - type: docker-containers
-            title: "Remote Containers (Conf Server)"
-            sock-path: ${DOCKER_SOCK}
+            title: "Host Containers"
+            sock-path: /var/run/docker.sock
           - type: dns-stats
             service: adguard
             url: ${ADGUARD_URL}
