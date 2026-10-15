@@ -24,6 +24,7 @@ pages:
                     url: "https://github.com/glanceapp/glance/blob/main/docs/configuration.md#configuring-glance"
                     icon: si:glance
           - type: iframe
+            title: Court search
             source: http://100.98.94.48:3001/status
             height: 200
           - type: weather
