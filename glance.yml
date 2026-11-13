@@ -52,12 +52,7 @@ pages:
                 mountpoints:
                   "/":
                     name: "Root Disk"
-              - type: remote
-                name: "Conf Server"
-                url: ${CONF_SERVER_URL}
-         #- type: docker-containers
-          # title: "Remote Containers (Conf Server)"
-          # sock-path: ${DOCKER_SOCK}
+         
           - type: docker-containers
             title: "Host Containers"
             sock-path: /var/run/docker.sock
